@@ -1,0 +1,46 @@
+{% extends 'posts/base.html' %}
+{% block content %}
+{% load static %}
+<br><br><br>
+<div style="
+    border: solid grey 3px;
+    border-radius: 15px;
+    padding: 25px;
+"> <h1 >Generated Traffic </h1>
+
+<div class="traffic" >
+	{% for tt in traffic %}
+		<h3>{{tt.ip}}</h3>
+		<p>Visit Date: {{tt.created_at}}
+		</p>
+		<p>
+		Country: {{tt.country}}
+		</p>
+		<p>
+		City: {{tt.city}}
+		</p>
+		<p>
+		Timezone: {{tt.timezone}}
+		</p>
+		<p>
+		Region: {{tt.region}}
+		</p>
+		<hr>
+	{% endfor %}
+</div>
+</div>
+
+<div class="feeds">
+	{% for result in results %}
+		<h3>{{result.title}}</h3>
+		<br>
+		Name:{{result.author}}
+		<br>
+
+		<p id="{{result.id}}">
+			{{result.body}}
+		</p>
+		<hr>
+	{% endfor %}
+</div>
+{% endblock %}
